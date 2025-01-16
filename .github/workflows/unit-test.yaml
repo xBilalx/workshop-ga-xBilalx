@@ -18,11 +18,11 @@ jobs:
 
       - name: Run tests
         shell: bash
-        run: make tests_run >> output_test_coverage
+        run: make tests_run | tee output_test_coverage
       
       - name: Run converage
         shell: bash
-        run: make coverage >> output_test_coverage
+        run: make coverage | tee -a output_test_coverage
 
       - name: Archive coverage in Artefact
         uses: actions/upload-artifact@v4
